@@ -1,18 +1,21 @@
 # Ignore all core Drupal files.
-www/*.*
-www/core
-www/modules/README.txt
-www/profiles/README.txt
-www/themes/README.txt
+/drupal/web/*.*
+/drupal/web/core
+/drupal/web/modules/README.txt
+/drupal/web/profiles/README.txt
+/drupal/web/themes/README.txt
 
 # But not the .well-known!
-!www/.well-known
+!/drupal/web/.well-known
 
 # Ignore vendor directory
 vendor
 
 # Ignore contrib files.
-www/libraries/*
-www/modules/*
-www/themes/*
-www/sites
+/drupal/web/libraries/*
+/drupal/web/modules/*
+/drupal/web/themes/*
+/drupal/web/sites
+
+/.idea
+

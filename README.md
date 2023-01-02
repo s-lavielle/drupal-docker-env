@@ -10,7 +10,7 @@ Copy `docker.env.dist` file to `docker.env` and `.env.dist` file to `.env` and u
 ```docker compose exec drupal sh scripts/init.sh```
 
 ## Install drupal site
-docker compose exec drupal sh scripts/install.sh
+```docker compose exec drupal sh scripts/install.sh```
 
 ## Connect to drupal container using ssh with dev user
 ```docker compose exec --user dev drupal bash```
@@ -24,7 +24,7 @@ docker compose exec drupal sh scripts/install.sh
 ### Override drupal system.site uuid
 ```docker compose exec drupal sh scripts/uuid.sh```
 
-Stop stack
+### Stop stack
 ```docker compose stop```
 
 
