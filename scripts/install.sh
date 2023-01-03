@@ -1,7 +1,6 @@
-cd /var/www/html/
+cd /var/www/html/drupal
 
 # Install site
-cd /www
 ./vendor/bin/drush site-install -v -y \
     --account-mail="${DRUPAL_ACCOUNT_MAIL}" \
     --account-name="${DRUPAL_ACCOUNT_NAME}" \

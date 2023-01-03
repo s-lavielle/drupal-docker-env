@@ -1,9 +1,13 @@
+ARG PHP_MAJOR_VERSION
+ARG PHP_MINOR_VERSION
+
 # See https://www.drupal.org/docs/system-requirements/php-requirements
-FROM php:7.4-apache
+FROM php:${PHP_MAJOR_VERSION}.${PHP_MINOR_VERSION}-apache
 
 ARG DRUPAL_CONTAINER_USER_NAME
 ARG HOST_WWW_UID
 ARG PROJECT_DIR
+ARG PHP_MAJOR_VERSION
 
 # Install the PHP extensions we need
 RUN set -eux; \
@@ -31,16 +35,28 @@ RUN set -eux; \
     --with-jpeg \
 	; \
 	\
-	docker-php-ext-install -j "$(nproc)" \
-		gd \
-		json \
-		pdo \
-		opcache \
-		pdo_mysql \
-		pdo_pgsql \
-		sockets \
-		zip \
-	;
+	if [ "$PHP_MAJOR_VERSION" -gt "7" ]; then \
+    docker-php-ext-install -j "$(nproc)" \
+      gd \
+      pdo \
+      opcache \
+      pdo_mysql \
+      pdo_pgsql \
+      sockets \
+      zip \
+    ; \
+  else \
+    docker-php-ext-install -j "$(nproc)" \
+      gd \
+      json \
+      pdo \
+      opcache \
+      pdo_mysql \
+      pdo_pgsql \
+      sockets \
+      zip \
+    ; \
+  fi;
 
 # Set recommended PHP.ini settings
 # See https://secure.php.net/manual/en/opcache.installation.php

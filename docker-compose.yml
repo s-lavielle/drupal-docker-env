@@ -23,7 +23,8 @@ services:
         - DRUPAL_CONTAINER_USER_NAME=${DRUPAL_CONTAINER_USER_NAME}
         - HOST_WWW_UID=${HOST_WWW_UID}
         - PROJECT_DIR=${PROJECT_DIR}
-        - PHP_VERSION=${PHP_VERSION}
+        - PHP_MAJOR_VERSION=${PHP_MAJOR_VERSION}
+        - PHP_MINOR_VERSION=${PHP_MINOR_VERSION}
     env_file:
       - docker.env
     ports:
