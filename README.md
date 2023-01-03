@@ -44,10 +44,10 @@ then go into your project directory
 ```docker compose exec --user dev drupal bash```
 
 ## Run drush command
-```docker compose exec --user dev drupal vendor/bin/drush <drush-command>```
+```docker compose exec --user dev drupal drupal/vendor/bin/drush <drush-command>```
 
 Some examples:
-```docker compose exec --user dev drupal vendor/bin/drush status```
+```docker compose exec --user dev drupal drupal/vendor/bin/drush status```
 
 ## Run composer command
 ```docker compose exec --user dev drupal composer require drupal/admin_toolbar```
